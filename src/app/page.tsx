@@ -99,6 +99,60 @@ export default function Home() {
           <ChevronDown size={32} />
         </motion.div>
       </motion.div>
+
+      {/* About Section */}
+      <section className="min-h-screen w-full flex items-center justify-center py-24 relative z-10">
+        <div className="max-w-4xl mx-auto px-6 w-full">
+          <motion.h2 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-4xl font-bold mb-12 border-b border-border pb-4"
+          >
+            About Me
+          </motion.h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary overflow-hidden border border-border flex items-center justify-center"
+            >
+              {/* Placeholder for an actual photo or abstract graphic */}
+              <div className="text-muted-foreground/50 text-6xl font-bold font-mono tracking-tighter mix-blend-overlay">
+                {'< CODE />'}
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="space-y-6 text-lg text-muted-foreground"
+            >
+              <p>
+                I build things for the web. Whether it's a scalable API gateway handling thousands of requests, or a pixel-perfect user interface with smooth animations, I love the entire stack.
+              </p>
+              <p>
+                Currently exploring the intersection of AI and traditional software engineering. When I'm not writing code, you can probably find me tinkering with server homelabs or optimizing workflows.
+              </p>
+              <div className="pt-6 grid grid-cols-2 gap-4">
+                {[
+                  "TypeScript", "Python", "React / Next.js", "FastAPI", "Redis / Qdrant", "Docker"
+                ].map((skill, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-blue-500" />
+                    <span className="text-foreground">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

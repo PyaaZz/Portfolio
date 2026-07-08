@@ -153,6 +153,72 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Projects Section */}
+      <section className="min-h-screen w-full py-24 relative z-10 bg-secondary/20">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-16 text-center"
+          >
+            Selected Work
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "AI API Gateway",
+                desc: "Smart LLM router with semantic caching using Qdrant and Redis. Slashes API costs by serving cached embeddings.",
+                tags: ["Python", "FastAPI", "Redis", "Qdrant", "Docker"],
+                color: "from-blue-500 to-cyan-400"
+              },
+              {
+                title: "Support Ticketing App",
+                desc: "Full-stack customer support platform with real-time updates and an automated categorization engine.",
+                tags: ["Next.js", "Tailwind", "PostgreSQL", "Prisma"],
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                title: "Resume Parser CLI",
+                desc: "A command-line tool that extracts and structures data from PDF resumes using OCR and NLP.",
+                tags: ["Go", "CLI", "NLP"],
+                color: "from-emerald-400 to-cyan-400"
+              },
+              {
+                title: "Personal Portfolio",
+                desc: "You're looking at it! Built with Next.js App Router, Tailwind CSS, and Framer Motion.",
+                tags: ["React", "Framer Motion", "Tailwind"],
+                color: "from-orange-400 to-rose-400"
+              }
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group rounded-2xl border border-border bg-card p-6 overflow-hidden relative cursor-pointer"
+              >
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${project.color} rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                <p className="text-muted-foreground mb-6 line-clamp-3">
+                  {project.desc}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-secondary text-secondary-foreground border border-border">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -219,6 +219,46 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section className="min-h-[50vh] w-full flex items-center justify-center py-24 relative z-10">
+        <div className="max-w-3xl mx-auto px-6 w-full text-center">
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-5xl font-black mb-6"
+          >
+            Let's build something.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-muted-foreground mb-10"
+          >
+            I'm currently open for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
+          </motion.p>
+          <motion.a
+            href="mailto:hello@example.com"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center h-14 px-8 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg hover:shadow-primary/25 transition-all"
+          >
+            Say Hello
+          </motion.a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-8 border-t border-border text-center text-muted-foreground text-sm z-10 relative">
+        <p>Built with Next.js & Framer Motion. © {new Date().getFullYear()} Granthik.</p>
+      </footer>
     </main>
   );
 }
